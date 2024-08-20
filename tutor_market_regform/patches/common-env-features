@@ -1,0 +1,8 @@
+# via tutor-contrib-market-regform patch common-env-features
+ENABLE_DYNAMIC_REGISTRATION_FIELDS: true
+"REGISTRATION_EXTRA_FIELDS": {
+    "market": "required",
+}
+extended_profile_fields: [
+  "market"
+]

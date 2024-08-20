@@ -1,0 +1,2 @@
+# via tutor-contrib-market-regform patch cms-env
+ENABLE_COMBINED_LOGIN_REGISTRATION: true

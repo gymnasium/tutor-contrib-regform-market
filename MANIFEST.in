@@ -1,0 +1,3 @@
+recursive-include tutor_market_regform/patches *
+recursive-include tutor_market_regform/templates *
+include tutor_market_regform/migrations/*.py
