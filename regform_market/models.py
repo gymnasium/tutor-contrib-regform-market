@@ -12,8 +12,8 @@ class ExtraInfo(models.Model):
 
     user = models.OneToOneField(
         USER_MODEL,
+        on_delete=models.SET_NULL,
         null=True,
-        on_delete=models.SET_NULL
     )
     MARKETS = (
         ("10", "Not Applicable"),
