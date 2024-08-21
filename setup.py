@@ -39,7 +39,7 @@ setup(
     description="Market field registration form extension for Tutor",
     long_description=load_readme(),
     long_description_content_type="text/x-rst",
-    packages=find_packages(exclude=["tests*"]),
+    packages=['regform_market'],
     include_package_data=True,
     python_requires=">=3.8",
     install_requires=[
