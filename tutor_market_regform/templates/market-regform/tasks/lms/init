@@ -1,3 +1,0 @@
-# make migrations
-./manage.py lms makemigrations tutor_market_regform
-./manage.py lms migrate

@@ -48,14 +48,14 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 ########################################
 
 # To add a custom initialization task, create a bash script template under:
-# tutor_market_regform/templates/market-regform/tasks/
+# regform_market/templates/regform_market/tasks/
 # and then add it to the MY_INIT_TASKS list. Each task is in the format:
 # ("<service>", ("<path>", "<to>", "<script>", "<template>"))
 MY_INIT_TASKS: list[tuple[str, tuple[str, ...]]] = [
     # For example, to add LMS initialization steps, you could add the script template at:
-    # tutor_market_regform/templates/market-regform/tasks/lms/init.sh
+    # regform_market/templates/regform_market/tasks/lms/init.sh
     # And then add the line:
-    ("lms", ("market-regform", "tasks", "lms", "init")),
+    ("lms", ("regform_market", "tasks", "lms", "init.sh")),
 ]
 
 
@@ -64,7 +64,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...]]] = [
 # run it as part of the `init` job.
 for service, template_path in MY_INIT_TASKS:
     full_path: str = str(
-        importlib_resources.files("tutor_market_regform")
+        importlib_resources.files("regform_market")
         / os.path.join("templates", *template_path)
     )
     with open(full_path, encoding="utf-8") as init_task_file:
@@ -83,11 +83,11 @@ for service, template_path in MY_INIT_TASKS:
 hooks.Filters.IMAGES_BUILD.add_items(
     [
         # To build `myimage` with `tutor images build myimage`,
-        # you would add a Dockerfile to templates/market-regform/build/myimage,
+        # you would add a Dockerfile to templates/regform_market/build/myimage,
         # and then write:
         ### (
         ###     "myimage",
-        ###     ("plugins", "market-regform", "build", "myimage"),
+        ###     ("plugins", "regform_market", "build", "myimage"),
         ###     "docker.io/myimage:{{ MARKET_REGFORM_VERSION }}",
         ###     (),
         ### ),
@@ -132,7 +132,7 @@ hooks.Filters.IMAGES_PUSH.add_items(
 hooks.Filters.ENV_TEMPLATE_ROOTS.add_items(
     # Root paths for template files, relative to the project root.
     [
-        str(importlib_resources.files("tutor_market_regform") / "templates"),
+        str(importlib_resources.files("regform_market") / "templates"),
     ]
 )
 
@@ -140,11 +140,11 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
     # For each pair (source_path, destination_path):
     # templates at ``source_path`` (relative to your ENV_TEMPLATE_ROOTS) will be
     # rendered to ``source_path/destination_path`` (relative to your Tutor environment).
-    # For example, ``tutor_market_regform/templates/market-regform/build``
-    # will be rendered to ``$(tutor config printroot)/env/plugins/market-regform/build``.
+    # For example, ``regform_market/templates/regform_market/build``
+    # will be rendered to ``$(tutor config printroot)/env/plugins/regform_market/build``.
     [
-        ("market-regform/build", "plugins"),
-        ("market-regform/apps", "plugins"),
+        ("regform_market/build", "plugins"),
+        ("regform_market/apps", "plugins"),
     ],
 )
 
@@ -155,9 +155,9 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
 #  this section as-is :)
 ########################################
 
-# For each file in tutor_market_regform/patches,
+# For each file in regform_market/patches,
 # apply a patch based on the file's name and contents.
-for path in glob(str(importlib_resources.files("tutor_market_regform") / "patches" / "*")):
+for path in glob(str(importlib_resources.files("regform_market") / "patches" / "*")):
     with open(path, encoding="utf-8") as patch_file:
         hooks.Filters.ENV_PATCHES.add_item((os.path.basename(path), patch_file.read()))
 
@@ -207,17 +207,17 @@ for path in glob(str(importlib_resources.files("tutor_market_regform") / "patche
 
 
 ### @click.group()
-### def market-regform() -> None:
+### def regform_market() -> None:
 ###     pass
 
 
-### hooks.Filters.CLI_COMMANDS.add_item(market-regform)
+### hooks.Filters.CLI_COMMANDS.add_item(regform_market)
 
 
 # Then, you would add subcommands directly to the Click group, for example:
 
 
-### @market-regform.command()
+### @regform_market.command()
 ### def example_command() -> None:
 ###     """
 ###     This is helptext for an example command.
@@ -226,4 +226,4 @@ for path in glob(str(importlib_resources.files("tutor_market_regform") / "patche
 
 
 # This would allow you to run:
-#   $ tutor market-regform example-command
+#   $ tutor regform_market example-command

@@ -14,7 +14,7 @@ def load_readme():
 def load_about():
     about = {}
     with io.open(
-        os.path.join(HERE, "tutor_market_regform", "__about__.py"),
+        os.path.join(HERE, "regform_market", "__about__.py"),
         "rt",
         encoding="utf-8",
     ) as f:
@@ -26,12 +26,12 @@ ABOUT = load_about()
 
 
 setup(
-    name="tutor-contrib-market-regform",
+    name="tutor-contrib-regform-market",
     version=ABOUT["__version__"],
-    url="https://github.com/gymnasium/tutor-contrib-market-regform",
+    url="https://github.com/gymnasium/tutor-contrib-regform-market",
     project_urls={
-        "Code": "https://github.com/gymnasium/tutor-contrib-market-regform",
-        "Issue tracker": "https://github.com/gymnasium/tutor-contrib-market-regform/issues",
+        "Code": "https://github.com/gymnasium/tutor-contrib-regform-market",
+        "Issue tracker": "https://github.com/gymnasium/tutor-contrib-regform-market/issues",
     },
     license="AGPLv3",
     author="Gymnasium",
@@ -43,17 +43,17 @@ setup(
     include_package_data=True,
     python_requires=">=3.8",
     install_requires=[
-        "tutor>=18.0.0,<19.0.0"
+        "tutor>=18.0.0,<19.0.0",
+        "Django"
         ],
     extras_require={
         "dev": [
             "tutor[dev]>=18.0.0,<19.0.0",
-            "Django",
         ]
     },
     entry_points={
         "tutor.plugin.v1": [
-            "market-regform = tutor_market_regform.plugin"
+            "regform_market = regform_market.plugin"
         ]
     },
     classifiers=[

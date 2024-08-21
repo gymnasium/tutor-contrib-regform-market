@@ -1,4 +1,4 @@
-market-regform plugin for `Tutor <https://docs.tutor.edly.io>`__
+regform_market plugin for `Tutor <https://docs.tutor.edly.io>`__
 ################################################################
 
 Market field registration form extension for Tutor
@@ -9,14 +9,14 @@ Installation
 
 .. code-block:: bash
 
-    pip install git+https://github.com/gymnasium/tutor-contrib-market-regform
+    pip install git+https://github.com/gymnasium/tutor-contrib-regform-market
 
 Usage
 *****
 
 .. code-block:: bash
 
-    tutor plugins enable market-regform
+    tutor plugins enable regform_market
 
 
 License

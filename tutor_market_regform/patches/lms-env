@@ -1,6 +1,0 @@
-# via tutor-contrib-market-regform patch lms-env
-ADDL_INSTALLED_APPS: [
-  "market_regform"
-]
-ENABLE_COMBINED_LOGIN_REGISTRATION: true
-REGISTRATION_EXTENSION_FORM: "market_regform.forms.ExtraInfoForm"
