@@ -10,7 +10,11 @@ class ExtraInfo(models.Model):
     The form that wraps this model is in the forms.py file.
     """
 
-    user = models.OneToOneField(USER_MODEL, null=True)
+    user = models.OneToOneField(
+        USER_MODEL,
+        null=True,
+        on_delete=models.SET_NULL
+    )
     MARKETS = (
         ("10", "Not Applicable"),
         ("36", "Australia - Melbourne"),
