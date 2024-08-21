@@ -15,9 +15,23 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ExtraInfo',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('market', models.CharField(blank=True, max_length=5, verbose_name=b'Select Nearest Region', choices=[(b'Charlotte', b'50'), (b'Boston', b'51')])),
-                ('user', models.OneToOneField(null=True, to=settings.AUTH_USER_MODEL)),
+                ('id', models.AutoField(
+                    verbose_name='ID',
+                    serialize=False,
+                    auto_created=True,
+                    primary_key=True,
+                )),
+                ('market', models.CharField(
+                    blank=True,
+                    max_length=5,
+                    verbose_name=b'Select Nearest Region',
+                    choices=[(b'Venus', b'01'), (b'Mars', b'02')],
+                )),
+                ('user', models.OneToOneField(
+                    on_delete=models.CASCADE,
+                    null=True,
+                    to=settings.AUTH_USER_MODEL,
+                )),
             ],
         ),
     ]
