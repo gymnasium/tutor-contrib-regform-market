@@ -1,8 +1,6 @@
 from django.conf import settings
 from django.db import models
-
-# Backwards compatible settings.AUTH_USER_MODEL
-USER_MODEL = getattr(settings, "AUTH_USER_MODEL", "auth.User")
+from django.contrib.auth.models import User
 
 class ExtraInfo(models.Model):
     """
@@ -11,9 +9,10 @@ class ExtraInfo(models.Model):
     """
 
     user = models.OneToOneField(
-        USER_MODEL,
+        User,
         on_delete=models.CASCADE,
         null=True,
+        blank=True,
     )
     MARKETS = (
         ("10", "Not Applicable"),
