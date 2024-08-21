@@ -12,7 +12,7 @@ class ExtraInfo(models.Model):
 
     user = models.OneToOneField(
         USER_MODEL,
-        on_delete=models.SET_NULL,
+        on_delete=models.CASCADE,
         null=True,
     )
     MARKETS = (
