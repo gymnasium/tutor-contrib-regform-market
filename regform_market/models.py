@@ -80,5 +80,4 @@ class ExtraInfo(models.Model):
         choices=MARKETS,
         blank=False,
         max_length=5,
-        on_delete=models.SET_NULL,
     )
