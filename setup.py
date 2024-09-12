@@ -36,7 +36,7 @@ setup(
     license="AGPLv3",
     author="Gymnasium",
     author_email="help@thegymnasium.com",
-    description="Market field registration form extension for Tutor",
+    description="Gymnasium-specific Market field registration form extension for Tutor",
     long_description=load_readme(),
     long_description_content_type="text/x-rst",
     packages=['regform_market'],
@@ -45,7 +45,7 @@ setup(
     install_requires=[
         "tutor>=18.0.0,<19.0.0",
         "Django"
-        ],
+    ],
     extras_require={
         "dev": [
             "tutor[dev]>=18.0.0,<19.0.0",
